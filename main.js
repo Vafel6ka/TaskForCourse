@@ -51,6 +51,7 @@ function delBank () {
             showBanks()
     }))    
 })
+    if (banks.length==0) document.getElementById("getCalc").style.visibility = "hidden";
 }
 
 function editBank() {
@@ -59,7 +60,6 @@ function editBank() {
     btn.addEventListener('mousedown', ((event)=>{
         event.preventDefault();
         btn.style.backgroundColor = 'red';
-        //console.log(Object.values(banks[Math.trunc(ind/5)]));
         console.log((ind+1)%5)
         switch ((ind+1)%5){
             case 1:
