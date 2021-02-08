@@ -1,7 +1,7 @@
 const banks = [];
 const div = document.getElementById('table');
 const calc = document.getElementById('calcWrapper');
-const titles = [`Bank's name`, `InterestRate`, `MaxLoan`, 'MinDownPayment', 'LoanTerm'];
+const titles = [`Bank's name`, `Interest rate`, `Max loan`, 'Min downpayment', 'Loan term'];
 
 function addBank() {
     const bank = {};
@@ -26,7 +26,7 @@ function showBanks() {
             let column = document.createElement('div');
             column.className = 'tableColumn'
             column.innerHTML = `
-            ${titles[index]} : ${arr[index]}
+            ${arr[index]}
             `; 
         row.append(column);  
         }
@@ -91,37 +91,6 @@ function editBank() {
 }))    
 })
 }
-
-function getCalculate22() {
-    info = {}
-    info["bank"] = prompt(`Enter bank's name`);
-    info['downPayment'] = Number(prompt(`Down payment`));
-    info['initialLoan']  = Number(prompt(`Initial loan`));
-    console.log(info)
-    let isName = true;
-
-    banks.forEach((bank)=>{
-        if (bank.name == info.bank) {
-            isName = false;
-            if (bank.minDownPayment > info.downPayment) {
-                alert('change bank or up you downPayment')
-                return
-            }
-            const a = Math.pow((1 + bank.interestRate/12),bank.loanTerm)
-            const m = (Math.round((((info.initialLoan-info.downPayment)*((bank.interestRate)/12)*a)/(a-1))+100)/100);
-            console.log(m)
-            
-            let calcText = document.createElement('div');
-            calcText.className = 'calcText';
-            calcText.innerHTML = `
-            <p> You mounthly payment in ${bank.name} bank will be $${m}</p>
-            `;
-            calc.prepend(calcText);            
-        } 
-        })
-        if (isName) alert (`Select the right bank's name!`)
-}
-
 
 function getCalculate(){
   console.log(nameBank.value)

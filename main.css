@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    height: 700px;
+    height: 800px;
     font-family: 'Courier New', Courier, monospace;
     font-style: oblique;
 }
@@ -184,4 +184,23 @@ text-shadow: 1px 1px 1px black;
 #addBankDiv {
   width: 90%;
   margin: 0.5% 5%
+}
+
+.row {
+  display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+        justify-content: center; /* align horizontal */
+    align-items: center;
+    width: 80%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 70px;
+  margin:0 5%;
 }
