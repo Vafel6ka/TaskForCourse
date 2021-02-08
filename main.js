@@ -12,7 +12,7 @@ function addBank() {
     bank["loanTerm"] = Number(prompt(`Enter bank's loanTerm`));
     banks.push(bank);
     showBanks()
-    document.getElementById("getCalc").style.visibility = "visible";
+    document.getElementById("probaCalc").style.visibility = "visible";
 }
 
 function showBanks() {
@@ -51,7 +51,7 @@ function delBank () {
             showBanks()
     }))    
 })
-    if (banks.length==0) document.getElementById("getCalc").style.visibility = "hidden";
+    if (banks.length==0) document.getElementById("probaCalc").style.visibility = "hidden";
 }
 
 function editBank() {
@@ -92,11 +92,43 @@ function editBank() {
 })
 }
 
-function getCalculate() {
+function getCalculate22() {
     info = {}
     info["bank"] = prompt(`Enter bank's name`);
     info['downPayment'] = Number(prompt(`Down payment`));
     info['initialLoan']  = Number(prompt(`Initial loan`));
+    console.log(info)
+    let isName = true;
+
+    banks.forEach((bank)=>{
+        if (bank.name == info.bank) {
+            isName = false;
+            if (bank.minDownPayment > info.downPayment) {
+                alert('change bank or up you downPayment')
+                return
+            }
+            const a = Math.pow((1 + bank.interestRate/12),bank.loanTerm)
+            const m = (Math.round((((info.initialLoan-info.downPayment)*((bank.interestRate)/12)*a)/(a-1))+100)/100);
+            console.log(m)
+            
+            let calcText = document.createElement('div');
+            calcText.className = 'calcText';
+            calcText.innerHTML = `
+            <p> You mounthly payment in ${bank.name} bank will be $${m}</p>
+            `;
+            calc.prepend(calcText);            
+        } 
+        })
+        if (isName) alert (`Select the right bank's name!`)
+}
+
+
+function getCalculate(){
+  console.log(nameBank.value)
+  info = {}
+    info["bank"] = nameBank.value
+    info['downPayment'] = downPayment.value
+    info['initialLoan']  = initialLoan.v
     console.log(info)
     let isName = true;
 

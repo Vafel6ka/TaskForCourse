@@ -27,7 +27,7 @@ body {
 }
 
 #tableWrapper {
-    overflow:auto; overflow-x:hidden; height: 300px;
+    overflow:auto; overflow-x:hidden; height: 200px;
     background-color: rgb(5, 55, 99);
     width: 100%;
     
@@ -62,7 +62,7 @@ color: white;
 text-shadow: 1px 1px 1px black;
 }
 
-#getCalc {
+#probaCalc {
     visibility: hidden;
 }
 
@@ -109,4 +109,54 @@ text-shadow: 1px 1px 1px black;
 
 #calcWrapper {
     overflow:auto; overflow-x:hidden; height: 100px;
+}
+
+#probaCalc {
+   font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+}
+
+#calcDiv {
+    margin: 5.2%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+}
+
+#nameBank, #downPayment, #initialLoan {
+     font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    height: 25px;
+    width: 20%;
+    background-color: white;
+    border: px groove rgb(7, 7, 7);
+    margin: 2px;
+    color: black;
+    box-shadow:  inset 0 0 10px #000000;
+}
+
+.inpText {
+  width: 70px;
+  margin:0 4px;
+}
+
+#getCalc{
+   font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    color: white;
+  width: 70px;
+    height: 35px;
+    border: 2px groove dimgray;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    margin-left: 0.2%;  
+    margin-bottom: 3px; 
+    box-shadow: inset 1px 6px 12px lightblue, inset -1px -10px 5px black, 1px 2px 1px black;
+    background-color: rgb(5, 55, 99);
 }

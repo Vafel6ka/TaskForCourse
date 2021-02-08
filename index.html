@@ -14,16 +14,35 @@
     </div>
 
     <div id="wrapper">
+      
         <div id="banksList">
+            
             <div id="listheader"> 
                 <p> The banks list </p> 
             </div>
+            
             <div id="tableWrapper">
-                <div id="table">               
+              
+                <div id="table"> 
                 </div>
-                <div id="btnAddBank" onclick="addBank()">Add bank</div>
-                <div id="getCalc" onclick="getCalculate()">Calculate</div>
+                
+                <div id="btnAddBank" onclick="addBank()">Add bank
+                </div>
+                
             </div>
+            
+            <div id="probaCalc">
+                 <div id="calcDiv">
+                  <div class="inpText">Bank's name </div>
+                  <input type="text" id="nameBank" value="" />
+                  <div class="inpText">Down payment</div>
+                  <input type="text" id="downPayment" value="" />
+                  <div class="inpText">Initial loan </div>
+                  <input type="text" id="initialLoan" value="" />
+                  <input type="submit" name="" id="getCalc" value="prCalc" onclick="getCalculate()"/>
+                 </div>  
+            </div>
+            
         </div>
         
     </div>
