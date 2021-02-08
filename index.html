@@ -26,23 +26,40 @@
                 <div id="table"> 
                 </div>
                 
-                <div id="btnAddBank" onclick="addBank()">Add bank
-                </div>
-                
             </div>
             
-            <div id="probaCalc">
-                 <div id="calcDiv">
+            <div id="entranceWrapper">
+              <div id="addBankDiv">
+                <div id="calcDiv">
                   <div class="inpText">Bank's name </div>
+                  <input type="text" id="addNameBank" value="" />
+                  <div class="inpText">Interest rate </div>
+                  <input type="text" id="addInterestRate" value="" />
+                  <div class="inpText">Max loan </div>
+                  <input type="text" id="addMaxLoan" value="" />
+                  <div class="inpText">Min down payment </div>
+                  <input type="text" id="addMinDownPayment" value="" />
+                  <div class="inpText">Loan term </div>
+                  <input type="text" id="addLoanTerm" value="" />
+                <div id="btnAddBank" onclick="addBank()">Add bank
+                </div>
+                 </div>  
+                 </div>
+                 
+            <div id="probaCalc">
+              <div id="addBankDiv">
+                 <div id="calcDiv">
+                  <div class="inpText">Bank's name</div>
                   <input type="text" id="nameBank" value="" />
                   <div class="inpText">Down payment</div>
                   <input type="text" id="downPayment" value="" />
                   <div class="inpText">Initial loan </div>
                   <input type="text" id="initialLoan" value="" />
-                  <input type="submit" name="" id="getCalc" value="prCalc" onclick="getCalculate()"/>
+                  <input type="submit" name="" id="getCalc" value="Calculate" onclick="getCalculate()"/>
                  </div>  
+              </div>
             </div>
-            
+            </div>            
         </div>
         
     </div>

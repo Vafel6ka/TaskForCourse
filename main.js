@@ -5,11 +5,11 @@ const titles = [`Bank's name`, `InterestRate`, `MaxLoan`, 'MinDownPayment', 'Loa
 
 function addBank() {
     const bank = {};
-    bank["name"] = prompt(`Enter bank's name`);
-    bank["interestRate"] = Number(prompt(`Enter bank's interestRate`));
-    bank["maxLoan"] = Number(prompt(`Enter bank's maxLoan`));
-    bank["minDownPayment"] = Number(prompt(`Enter bank's minDownPayment`));
-    bank["loanTerm"] = Number(prompt(`Enter bank's loanTerm`));
+    bank["name"] = addNameBank.value;
+    bank["interestRate"] = Number(addInterestRate.value);
+    bank["maxLoan"] = Number(addMaxLoan.value);
+    bank["minDownPayment"] = Number(addMinDownPayment.value);
+    bank["loanTerm"] = Number(addLoanTerm.value);
     banks.push(bank);
     showBanks()
     document.getElementById("probaCalc").style.visibility = "visible";
