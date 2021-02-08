@@ -190,8 +190,8 @@ text-shadow: 1px 1px 1px black;
   display: flex;
     flex-direction: row;
     align-content: flex-start;
-        justify-content: center; /* align horizontal */
-    align-items: center;
+    justify-content: center;
+    
     width: 80%;
     margin-left: 8%;
     margin-right: 8%;
@@ -200,7 +200,6 @@ text-shadow: 1px 1px 1px black;
 .col {
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
-  width: 70px;
-  margin:0 5%;
+  align-content: center;
+  margin:0 4%;
 }
