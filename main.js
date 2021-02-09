@@ -1,8 +1,10 @@
-const banks = [];
+let banks = [];
 const div = document.getElementById('table');
 const calc = document.getElementById('calcWrapper');
 const titles = [`Bank's name`, `Interest rate`, `Max loan`, 'Min downpayment', 'Loan term'];
-saveInDB(banks);
+if (localStorage == 0) {localStorage.setItem('banks', JSON.stringify(banks))} else {
+showBanks()
+}
 function addBank() {
     const bank = {};
     bank["name"] = addNameBank.value;
@@ -10,17 +12,18 @@ function addBank() {
     bank["maxLoan"] = Number(addMaxLoan.value);
     bank["minDownPayment"] = Number(addMinDownPayment.value);
     bank["loanTerm"] = Number(addLoanTerm.value);
-    banks.push(bank);
-    saveInDB(banks)
+    let arr = loadArrFromDB();
+    arr.push(bank);
+    localStorage.setItem('banks', JSON.stringify(arr));
     showBanks()
     document.getElementById("probaCalc").style.visibility = "visible";
-    console.log(loadArrFromDB(banks))
+    console.log(loadArrFromDB())
 }
 
 function showBanks() {
     div.innerHTML = "";
 
-    loadArrFromDB(banks).forEach ((bank)=>{
+    loadArrFromDB().forEach ((bank)=>{
         let arr = Object.values(bank)
         let row = document.createElement('div');
         row.className = 'tableRow';
@@ -50,7 +53,7 @@ function delBank () {
         btn.addEventListener('mousedown', (()=>{
             btn.style.backgroundColor = 'red';
             banks.splice(ind,1);
-            saveInDB(banks);
+            saveInDB();
             showBanks()
     }))    
 })
@@ -68,31 +71,31 @@ function editBank() {
             case 1:
                 banks[Math.trunc(ind/5)].name = prompt('Enter name');                
                 console.log(`${banks[Math.trunc(ind/5)].name}`);
-                saveInDB(banks);
+                saveInDB();
                 showBanks();                   
                 break;
             case 2:
                 banks[Math.trunc(ind/5)].interestRate = prompt('Enter interestRate');
                 console.log(`${banks[Math.trunc(ind/5)].maxLoan}`);
-                saveInDB(banks);
+                saveInDB();
                 showBanks()
                 break;
             case 3:
                 banks[Math.trunc(ind/5)].maxLoan = prompt('Enter maxLoan');
                 console.log(`${banks[Math.trunc(ind/5)].loanTerm}`);
-                saveInDB(banks);
+                saveInDB();
                 showBanks()
                 break;
             case 4:
                 banks[Math.trunc(ind/5)].minDownPayment = prompt('Enter minDownPayment');
                 console.log(`${banks[Math.trunc(ind/5)].loanTerm}`);
-                saveInDB(banks);
+                saveInDB();
                 showBanks()
                 break;
             case 0:
                 banks[Math.trunc(ind/5)].loanTerm = prompt('Enter loanTerm');
                 console.log(`${banks[Math.trunc(ind/5)].loanTerm}`);
-                saveInDB(banks);
+                saveInDB();
                 showBanks()
                 break;
         }  
@@ -109,7 +112,7 @@ function getCalculate(){
     console.log(info)
     let isName = true;
 
-    loadArrFromDB(banks).forEach((bank)=>{
+    loadArrFromDB().forEach((bank)=>{
         if (bank.name == info.bank) {
             isName = false;
             if (bank.minDownPayment > info.downPayment) {
@@ -130,13 +133,11 @@ function getCalculate(){
         if (isName) alert (`Select the right bank's name!`)
 }
 
-function saveInDB(array) {
+function saveInDB() {
   localStorage.clear();
-  return localStorage.setItem(array, JSON.stringify(array));
+  return localStorage.setItem('banks', JSON.stringify(banks));
 }
 
-function loadArrFromDB(array) {
-  return JSON.parse(localStorage.getItem(`${array}`));
+function loadArrFromDB() {
+  return JSON.parse(localStorage.getItem(`banks`));
 }
-
-console.log(localStorage.length)
